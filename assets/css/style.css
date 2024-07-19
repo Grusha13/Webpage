@@ -1,0 +1,888 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Varela+Round&display=swap");
+.hidden-animation {
+  opacity: 0;
+}
+
+.show-animation {
+  opacity: 1;
+}
+
+.left-animation {
+  transition-duration: 2s;
+  animation: 2s ease-out 0s 1 slideInLeft;
+}
+
+.right-animation {
+  transition-duration: 2s;
+  animation: 2s ease-out 0s 1 slideInRight;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: translateZ(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  z-index: 99;
+  width: 100%;
+  background-color: #fff;
+  font-family: "Varela Round", sans-serif;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+}
+header .navbar-nav .nav-item {
+  margin: 0 10px;
+}
+header .navbar-nav .nav-item .nav-link {
+  position: relative;
+  color: #000;
+  transition: 0.4s;
+}
+header .navbar-nav .nav-item .nav-link.active {
+  color: #0CA854;
+}
+header .navbar-nav .nav-item .nav-link.active::after {
+  content: "";
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #0CA854;
+  bottom: 0;
+  transform: scale(1);
+}
+header .navbar-nav .nav-item .nav-link:after {
+  content: "";
+  display: block;
+  position: absolute;
+  transition: 0.4s;
+  background-color: transparent;
+  transform: scale(0);
+  transition-timing-function: cubic-bezier(0.58, 0.3, 0.005, 1);
+}
+header .wa-btn {
+  background-color: #26C943;
+  border-radius: 30px;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Readex Pro", sans-serif;
+}
+@media screen and (max-width: 990px) {
+  header .contact-no {
+    position: absolute;
+    top: 8px;
+    right: 100px;
+  }
+  header .navbar-collapse {
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+  header .navbar-light .navbar-toggler {
+    border: 0 !important;
+  }
+  header .navbar-toggler-icon {
+    background-image: none !important;
+  }
+  header .navbar-toggler-icon i {
+    color: #0CA854;
+    font-size: 30px;
+  }
+  header .navbar-toggler-icon .fa-bars {
+    transition: inherit;
+  }
+  header .navbar-toggler-icon .fa-xmark {
+    display: none;
+    transition: inherit;
+  }
+}
+@media screen and (max-width: 520px) {
+  header {
+    background-color: #0CA854;
+  }
+  header .contact-no {
+    position: absolute;
+    top: 0px;
+    right: 100px;
+  }
+  header .navbar-toggler-icon i {
+    color: #fff;
+  }
+  header .navbar-collapse {
+    background-color: #fff;
+    color: #000;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+  header .navbar-collapse .nav-link {
+    position: relative;
+    color: #000;
+  }
+  header .navbar-collapse .nav-link.active::after {
+    display: none;
+  }
+  header .navbar-collapse .nav-link:after {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  header .contact-no {
+    display: none !important;
+  }
+}
+
+/* Banner Start */
+.banner {
+  padding: 120px 0 40px;
+  background-image: url(../images/banner_bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.banner::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.2784313725);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.82;
+}
+.banner .title {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+.banner .title .image-wrapper {
+  margin-bottom: 20px;
+}
+.banner .title .image-wrapper img {
+  width: 22%;
+  max-width: 47%;
+}
+.banner .title h2 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.banner .title p {
+  font-size: 20px;
+}
+.banner .form-wrapper {
+  border-radius: 15px;
+  background-color: #0CA854;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  padding: 20px 0;
+  text-align: center;
+}
+.banner .form-wrapper h6 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+}
+.banner .form-wrapper h6 span {
+  font-weight: 700;
+  opacity: 1;
+  animation: zoomOut 0.8s;
+}
+.banner .form-wrapper .appoint-form .form-control {
+  padding-left: 40px;
+  position: relative;
+  margin: 10px 0;
+}
+.banner .form-wrapper .appoint-form .form-control:focus {
+  box-shadow: none;
+  border: 1px solid #000;
+}
+.banner .form-wrapper .appoint-form i {
+  position: absolute;
+  top: 21px;
+  left: 26px;
+  color: #0CA854;
+}
+.banner .form-wrapper .appoint-form .book-btn .appoint-btn {
+  background-color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 0;
+  color: #0CA854;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s all ease;
+}
+.banner .form-wrapper .appoint-form .book-btn .appoint-btn:hover {
+  background-color: #E83035;
+  color: #fff;
+}
+
+/* Banner End */
+/* About Start */
+.about {
+  padding: 80px 0 40px;
+}
+.about h1 {
+  font-weight: 900;
+  color: #000;
+}
+.about p {
+  color: #000;
+}
+.about .image-wrapper {
+  text-align: center;
+  overflow: hidden;
+}
+.about .image-wrapper img {
+  border-radius: 15px;
+  transition-duration: 2s;
+  animation: 2s ease-out 0s 1 slideInRight;
+}
+.about .image-wrapper img:hover {
+  transform: translateY(-8px);
+}
+
+/* About End */
+/* Department Start */
+.department {
+  padding: 60px 0;
+  background-color: #F7F7FF;
+  overflow: hidden;
+}
+.department .left-title {
+  padding-bottom: 30px;
+}
+.department .left-title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.department .left-title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.department .right-title {
+  position: relative;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.department .right-title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: #0CA854;
+  left: 0;
+}
+.department .right-title p {
+  margin-bottom: 0;
+  text-align: justify;
+  color: #000;
+}
+@media screen and (max-width: 767px) {
+  .department .right-title {
+    padding-left: 0;
+  }
+  .department .right-title::before {
+    display: none;
+  }
+}
+.department .card {
+  height: 440px;
+  margin: 15px 0;
+  border: 1px solid transparent;
+  transition: 0.3s all ease;
+  background-color: transparent;
+}
+.department .card .top-section {
+  margin-bottom: 30px;
+}
+.department .card .top-section .number h1 {
+  font-size: 80px;
+  font-weight: 700;
+  color: #0CA854;
+}
+.department .card .card-body h6 {
+  color: #000;
+  font-size: 25px;
+  font-weight: 700;
+}
+.department .card .card-body p {
+  color: #7A7A7A;
+  margin: 20px 0;
+}
+.department .card .card-body a {
+  background-color: #0CA854;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Readex Pro", sans-serif;
+}
+.department .card .card-body a i {
+  font-size: 14px;
+}
+.department .card .card-body a:hover {
+  background-color: #E83035;
+}
+.department .card:hover {
+  border: 1px solid #0CA854;
+  border-radius: 15px;
+  box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.07);
+}
+.department .up-animation {
+  transition-duration: 2s;
+  animation: 2s ease-out 0s 1 slideInUp;
+}
+
+/* Department Start */
+/* Types of Cancer Start */
+.type-of-cancer {
+  padding: 60px 0;
+}
+.type-of-cancer .left-title {
+  padding-bottom: 30px;
+}
+.type-of-cancer .left-title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.type-of-cancer .left-title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.type-of-cancer .right-title {
+  position: relative;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.type-of-cancer .right-title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: #0CA854;
+  left: 0;
+}
+.type-of-cancer .right-title p {
+  margin-bottom: 0;
+  text-align: justify;
+  color: #000;
+}
+@media screen and (max-width: 767px) {
+  .type-of-cancer .right-title {
+    padding-left: 0;
+  }
+  .type-of-cancer .right-title::before {
+    display: none;
+  }
+}
+.type-of-cancer .cancer-table {
+  border: 2px solid #0CA854;
+  opacity: 1;
+  animation: zoomIn 0.8s;
+}
+.type-of-cancer .cancer-table tr td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(128, 128, 128, 0.502);
+}
+.type-of-cancer .cancer-table tr:nth-child(odd) td {
+  background-color: rgba(128, 128, 128, 0.071);
+}
+.type-of-cancer .cancer-table tr:hover:nth-child(even) td {
+  background-color: rgba(128, 128, 128, 0.071);
+}
+
+/* Types of Cancer End */
+/* Doctors Start */
+.doctors {
+  padding: 60px 0;
+}
+.doctors .left-title {
+  padding-bottom: 30px;
+}
+.doctors .left-title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.doctors .left-title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.doctors .right-title {
+  position: relative;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.doctors .right-title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: #0CA854;
+  left: 0;
+}
+.doctors .right-title p {
+  margin-bottom: 0;
+  text-align: justify;
+  color: #000;
+}
+@media screen and (max-width: 767px) {
+  .doctors .right-title {
+    padding-left: 0;
+  }
+  .doctors .right-title::before {
+    display: none;
+  }
+}
+.doctors .card {
+  border: 1px solid #0CA854;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s all ease;
+  opacity: 1;
+  animation: zoomIn 0.8s;
+}
+.doctors .card .content {
+  background-color: #FFF0FB;
+  height: 160px;
+}
+.doctors .card .content h6 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #000;
+  font-weight: 700;
+}
+.doctors .card .content p {
+  color: #7A7A7A;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.doctors .card .content span {
+  color: #0CA854;
+  font-weight: 700;
+}
+.doctors .card:hover {
+  box-shadow: 0px 8px 12px 2px rgba(0, 0, 0, 0.15);
+  transition: 0.3s all ease;
+}
+
+/* Doctors End */
+/*Statisctics Start */
+.stats {
+  padding: 60px 0;
+  background-image: url(../images/stats_bg.webp);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+.stats::before {
+  content: "";
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+}
+.stats .left-title {
+  padding-bottom: 30px;
+}
+.stats .left-title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.stats .left-title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.stats .right-title {
+  position: relative;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.stats .right-title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: #0CA854;
+  left: 0;
+}
+.stats .right-title p {
+  margin-bottom: 0;
+  text-align: justify;
+  color: #000;
+}
+@media screen and (max-width: 767px) {
+  .stats .right-title {
+    padding-left: 0;
+  }
+  .stats .right-title::before {
+    display: none;
+  }
+}
+.stats .card {
+  border: 1px solid #0CA854;
+  border-radius: 15px;
+  background-color: #0CA854;
+  padding: 10px;
+  text-align: center;
+  height: 220px;
+  margin: 10px 0;
+}
+.stats .card .image-wrapper {
+  background-color: #fff;
+  border-radius: 100%;
+  padding: 40px 0px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
+.stats .card .card-body {
+  padding: 0;
+}
+.stats .card .card-body h6 {
+  color: #fff;
+  font-weight: 700;
+}
+.stats .card .card-body p {
+  font-size: 15px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/*Statisctics End */
+/* Why Fortis Start */
+.why-fortis {
+  padding: 60px 0;
+  overflow: hidden;
+}
+.why-fortis .left-title {
+  padding-bottom: 30px;
+}
+.why-fortis .left-title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.why-fortis .left-title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.why-fortis .right-title {
+  position: relative;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.why-fortis .right-title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: #0CA854;
+  left: 0;
+}
+.why-fortis .right-title p {
+  margin-bottom: 0;
+  text-align: justify;
+  color: #000;
+}
+@media screen and (max-width: 767px) {
+  .why-fortis .right-title {
+    padding-left: 0;
+  }
+  .why-fortis .right-title::before {
+    display: none;
+  }
+}
+.why-fortis .content-wrapper {
+  border: 1px solid #0CA854;
+  border-radius: 15px;
+}
+.why-fortis .content-wrapper .image-wrapper {
+  width: 75px;
+  margin-right: 5px;
+}
+
+/* Why Fortis End */
+/* Hospital Start */
+.hospitals {
+  padding: 60px 0;
+}
+.hospitals .left-title {
+  padding-bottom: 30px;
+}
+.hospitals .left-title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.hospitals .left-title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.hospitals .right-title {
+  position: relative;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.hospitals .right-title::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: #0CA854;
+  left: 0;
+}
+.hospitals .right-title p {
+  margin-bottom: 0;
+  text-align: justify;
+  color: #000;
+}
+@media screen and (max-width: 767px) {
+  .hospitals .right-title {
+    padding-left: 0;
+  }
+  .hospitals .right-title::before {
+    display: none;
+  }
+}
+.hospitals .card {
+  border: 1px solid #0CA854;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 15px 0;
+  transition: 0.3s all ease;
+  opacity: 1;
+  animation: zoomIn 1s;
+}
+.hospitals .card .content {
+  background-color: #FFF0FB;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+.hospitals .card .content h5 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+.hospitals .card:hover {
+  box-shadow: 0px 8px 12px 2px rgba(0, 0, 0, 0.15);
+  transition: 0.3s all ease;
+}
+
+/* Hospital End */
+/* FAQ Start */
+.faq {
+  padding: 30px 0;
+}
+.faq .title {
+  padding-bottom: 30px;
+}
+.faq .title h5 {
+  font-weight: 700;
+  color: #0CA854;
+}
+.faq .title h2 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 900;
+}
+.faq .ui-accordion {
+  transition: 0.3s all ease;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.faq .ui-accordion a {
+  font-weight: 700;
+  color: #353535;
+  text-decoration: none;
+}
+.faq .ui-accordion .ui-state-active a {
+  color: #000;
+}
+.faq .ui-accordion .ui-state-active .fa-chevron-down {
+  transition: 0.3s all ease;
+}
+.faq .ui-accordion .ui-state-active .fa-chevron-down::before {
+  content: "\f062";
+}
+.faq .ui-accordion .content-wrapper p {
+  color: #353535;
+  font-size: 15px;
+  font-weight: 400;
+}
+.faq .ui-accordion .border-top {
+  border-top: 1px solid #ccc;
+}
+
+/* FAQ End */
+/* Appointment Start */
+.appointment {
+  padding: 60px 0;
+  background-image: url(../images/stats_bg.webp);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+.appointment::before {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+}
+.appointment .title {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+}
+.appointment .title h5 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.appointment .title h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.appointment .title h2 span {
+  font-weight: 700;
+}
+.appointment .appoint-form .form-control {
+  padding-left: 40px;
+  position: relative;
+  margin: 10px 0;
+}
+.appointment .appoint-form .form-control:focus {
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+.appointment .appoint-form i {
+  position: absolute;
+  top: 21px;
+  left: 26px;
+  color: #0CA854;
+}
+.appointment .appoint-form .book-btn .appoint-btn {
+  background-color: #0CA854;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 0;
+  color: #fff;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s all ease;
+}
+.appointment .appoint-form .book-btn .appoint-btn:hover {
+  background-color: #E83035;
+}
+
+/* Appointment End */
+/* Footer Start */
+footer {
+  padding: 60px 0 20px;
+  background-color: #0CA854;
+  color: #fff;
+}
+footer .card {
+  border: 0;
+  padding-bottom: 40px;
+  background-color: transparent;
+}
+footer .card .icon-wrapper {
+  margin-bottom: 20px;
+}
+footer .card .icon-wrapper i {
+  font-size: 50px;
+}
+footer .card h6 {
+  font-size: 28px;
+  font-weight: 700;
+}
+footer .copyright {
+  border-top: 1px solid #fff;
+}
+
+/* Footer End *//*# sourceMappingURL=style.css.map */
